@@ -1,0 +1,80 @@
+<form action="/todos/{{restaurant._id}}/edit" method="POST" class="container mt-5 mb-5">
+  <div class="row mt-3 justify-content-center flex-nowrap">
+    <div class="mb-1 flex-column flex-wrap mr-2 ml-2 col-4 ">
+      <div class="text-secondary col-12">
+        <i class="fas fa-utensils pr-2"></i>
+        餐廳名稱：
+      </div>
+      <div class="">
+        <input type="text" name="name" id="" placeholder="餐廳名稱" value="{{restaurant.name}}" class="p-2 col-12"
+          required="required">
+      </div>
+    </div>
+    <div class="mb-1 flex-column flex-wrap mr-2 ml-2 col-4 ">
+      <div class="text-secondary">
+        <i class="fas fa-utensils pr-2"></i>
+        類別：
+      </div>
+      <input type="text" name="category" id="" placeholder="類別" value="{{restaurant.category}}" class="p-2 col-12"
+        required="required">
+    </div>
+    <div class="mb-1 flex-column flex-wrap mr-2 ml-2 col-4">
+      <div class="text-secondary">
+        <i class="fas fa-utensils pr-2"></i>
+        圖片：
+      </div>
+      <input type="text" name="image" id="" placeholder="圖片" class="p-2 col-12" value="{{restaurant.image}}"
+        required="required">
+    </div>
+
+  </div>
+  <div class="row mt-3 justify-content-center flex-nowrap">
+    <div class="mb-1 flex-column flex-wrap col-12">
+      <div class="text-secondary col-12">
+        <i class="fas fa-map-marker-alt pr-2"></i>
+        地址：
+      </div>
+      <input type="text" name="location" id="" placeholder="地址" value="{{restaurant.location}}" class="p-2 col-12"
+        required="required">
+    </div>
+
+  </div>
+  <div class="row mt-3 justify-content-center flex-nowrap">
+    <div class="mb-1 flex-column flex-wrap mr-2 ml-2 col-4 ">
+      <div class="text-secondary">
+        <i class="fas fa-mobile-alt pr-2"></i>
+        電話：
+      </div>
+      <input type="text" name="phone" id="" placeholder="電話" value="{{restaurant.phone}}" class="p-2 col-12"
+        required="required">
+    </div>
+    <div class="mb-1 flex-column flex-wrap mr-2 ml-2 col-4 ">
+      <div class="text-secondary">
+        <i class="fas fa-location-arrow pr-2 fa-xs"></i>gogle地圖：
+      </div>
+      <input type="text" name="google_map" id="" placeholder="gogle地圖" value="{{restaurant.google_map}}"
+        class="p-2 col-12" required="required">
+    </div>
+    <div class="mb-1 flex-column flex-wrap mr-2 ml-2 col-4 ">
+      <div class="text-secondary">
+        <i class="fas fa-star fa-xs pr-2"></i>評分：
+      </div>
+      <input type="text" name="rating" id="" placeholder="評分" value="{{restaurant.rating}}" class="p-2 col-12"
+        required="required">
+    </div>
+
+  </div>
+  <div class="row mt-3 justify-content-center flex-nowrap">
+    <div class="mb-1 col-12">
+      <span class="text-secondary">
+        <i class="fas fa-star fa-xs pr-2"></i>描述：
+      </span>
+      <textarea name="description" id="" placeholder="描述" class="p-2" style="width:100%; height:80px;"
+        required="required">{{restaurant.description}}</textarea>
+    </div>
+
+  </div>
+  <a href="/" class="mt-3 btn btn-major rounded text-white" type="submit" id="search-button">回上一頁</a>
+  <button class=" mt-3 btn btn-major ">儲存</button>
+  <a href="./delete" class="mt-3 btn btn-major rounded text-white" type="submit" id="search-button">刪除</a>
+</form>
