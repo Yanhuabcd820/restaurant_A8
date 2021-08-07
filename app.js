@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/restaurant_list', { useNewUrlParser: true, useUnifiedTopology: true })
+
 const exphbs = require('express-handlebars')
 
 const restaurantList = require('./restaurant.json')
@@ -31,4 +34,14 @@ app.get('/search', (req, res) => {
 
 app.listen(port, () => {
   console.log(`web run on http://localhost:${port}`)
+})
+
+
+
+const db = mongoose.connection
+db.on('error', () => {
+  console.log('error')
+})
+db.once('open', () => {
+  console.log('connected')
 })
