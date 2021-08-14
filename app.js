@@ -123,6 +123,12 @@ app.get('/todos/:id/delete', (req, res) => {
     .catch(error => console.log(error))
 
 })
+app.get('/search', (req, res) => {
+  const restaurantSearch = restaurantList.results.filter(item => item.name.toLowerCase().includes(req.query.keyword.toLowerCase()))
+  // console.log(restaurantSearch)
+  res.render('index', { restaurantShow: restaurantSearch, keyword: req.query.keyword })
+})
+
 app.listen(port, () => {
   console.log(`web run on http://localhost:${port}`)
 })
