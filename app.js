@@ -81,6 +81,7 @@ app.post('/todos/:id/edit', (req, res) => {
       todos.image = image
       todos.location = location
       todos.phone = phone
+      todos.google_map = google_map
       todos.rating = rating
       todos.description = description
       todos.save()

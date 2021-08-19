@@ -2,29 +2,21 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const TodoSchema = new Schema({
   name: {
-    type: String,
-    required: true
+    type: String
   }, category: {
-    type: String,
-    required: true
+    type: String
   }, image: {
-    type: String,
-    required: true
+    type: String
   }, location: {
-    type: String,
-    required: true
+    type: String
   }, phone: {
-    type: String,
-    required: true
+    type: String
   }, google_map: {
-    type: String,
-    required: true
+    type: String
   }, rating: {
-    type: String,
-    required: true
+    type: String
   }, description: {
-    type: String,
-    required: true
+    type: String
   }
 })
 
