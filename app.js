@@ -22,6 +22,7 @@ app.use(express.static('public'))
 app.get('/', (req, res) => {
   Todo.find()
     .lean()
+    .sort({ _id: 'asc' }) // 新增這裡：根據 _id 升冪排序
     .then(todos => res.render('index', { restaurantShow: todos }))
     .catch(error => console.error(error))
   // res.render('index', { restaurantShow: Todo })
@@ -35,9 +36,18 @@ app.get('/restaurants/:id', (req, res) => {
     .catch(error => console.error(error))
 })
 
+// app.get('/search', (req, res) => {
+//   const restaurantSearch = restaurantList.results.filter(item => item.name.toLowerCase().includes(req.query.keyword.toLowerCase()))
+//   // console.log(restaurantSearch)
+//   res.render('index', { restaurantShow: restaurantSearch, keyword: req.query.keyword })
+// })
 app.get('/search', (req, res) => {
   const keyword = RegExp(req.query.keyword, 'i') //i為不分大小寫
-  Todo.find({ $or: [{ 'name': { $regex: keyword } }, { 'category': { $regex: keyword } }] })
+  Todo.find({
+    $or: [
+      { 'name': { $regex: keyword } },
+      { 'category': { $regex: keyword } }]
+  })
     .lean()
     .then(restaurant => {
       if (restaurant.length === 0) {
@@ -49,10 +59,6 @@ app.get('/search', (req, res) => {
       res.render('index', { restaurantShow: restaurant, keyword: req.query.keyword })
     })
     .catch(error => console.log(error))
-})
-
-app.get('/todos/new', (req, res) => {
-  res.render('new')
 })
 
 app.get('/todos/:id/edit', (req, res) => {
@@ -115,19 +121,13 @@ app.post('/todos', (req, res) => {
     .catch(error => console.log(error))
 
 })
-app.get('/todos/:id/delete', (req, res) => {
+app.post('/todos/:id/delete', (req, res) => {
   const id = req.params.id
   Todo.findById(id)
     .then(todos => todos.remove())
-    // .delete()
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 
-})
-app.get('/search', (req, res) => {
-  const restaurantSearch = restaurantList.results.filter(item => item.name.toLowerCase().includes(req.query.keyword.toLowerCase()))
-  // console.log(restaurantSearch)
-  res.render('index', { restaurantShow: restaurantSearch, keyword: req.query.keyword })
 })
 
 app.listen(port, () => {

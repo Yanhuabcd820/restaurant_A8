@@ -1,6 +1,6 @@
 <form action="/todos/{{restaurant._id}}/edit" method="POST" class="container mt-5 mb-5">
   <div class="row mt-3 justify-content-center flex-nowrap">
-    <div class="mb-1 flex-column flex-wrap mr-2 ml-2 col-4 ">
+    <div class="mb-1 flex-column flex-wrap col-4 ">
       <div class="text-secondary col-12">
         <i class="fas fa-utensils pr-2"></i>
         餐廳名稱：
@@ -10,7 +10,7 @@
           required="required">
       </div>
     </div>
-    <div class="mb-1 flex-column flex-wrap mr-2 ml-2 col-4 ">
+    <div class="mb-1 flex-column flex-wrap col-4 ">
       <div class="text-secondary">
         <i class="fas fa-utensils pr-2"></i>
         類別：
@@ -18,7 +18,7 @@
       <input type="text" name="category" id="" placeholder="類別" value="{{restaurant.category}}" class="p-2 col-12"
         required="required">
     </div>
-    <div class="mb-1 flex-column flex-wrap mr-2 ml-2 col-4">
+    <div class="mb-1 flex-column flex-wrap col-4">
       <div class="text-secondary">
         <i class="fas fa-utensils pr-2"></i>
         圖片：
@@ -40,7 +40,7 @@
 
   </div>
   <div class="row mt-3 justify-content-center flex-nowrap">
-    <div class="mb-1 flex-column flex-wrap mr-2 ml-2 col-4 ">
+    <div class="mb-1 flex-column flex-wrap col-4 ">
       <div class="text-secondary">
         <i class="fas fa-mobile-alt pr-2"></i>
         電話：
@@ -48,14 +48,14 @@
       <input type="tel" name="phone" id="" placeholder="電話" value="{{restaurant.phone}}" class="p-2 col-12"
         required="required">
     </div>
-    <div class="mb-1 flex-column flex-wrap mr-2 ml-2 col-4 ">
+    <div class="mb-1 flex-column flex-wrap col-4 ">
       <div class="text-secondary">
         <i class="fas fa-location-arrow pr-2 fa-xs"></i>gogle地圖：
       </div>
       <input type="url" name="google_map" id="" placeholder="gogle地圖" value="{{restaurant.google_map}}"
         class="p-2 col-12" required="required">
     </div>
-    <div class="mb-1 flex-column flex-wrap mr-2 ml-2 col-4 ">
+    <div class="mb-1 flex-column flex-wrap col-4 ">
       <div class="text-secondary">
         <i class="fas fa-star fa-xs pr-2"></i>評分：
       </div>
@@ -76,5 +76,4 @@
   </div>
   <a href="/" class="mt-3 btn btn-major rounded text-white" type="submit" id="search-button">回上一頁</a>
   <button class=" mt-3 btn btn-major ">儲存</button>
-  <a href="./delete" class="mt-3 btn btn-major rounded text-white" type="submit" id="search-button">刪除</a>
 </form>

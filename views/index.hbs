@@ -14,6 +14,13 @@
                 class="fa fa-plus" aria-hidden="true"></i></a>
           </div>
         </div>
+        {{!-- <select class="custom-select mt-3" id="inputGroupSelect01">
+          <option selected>排序</option>
+          <option value="1">最新</option>
+          <option value="2">最舊</option>
+          <option value="3">最高分</option>
+          <option value="4">最低分</option>
+        </select> --}}
       </form>
     </div>
   </div>
@@ -41,11 +48,14 @@
                 <i class="fas fa-star fa-xs"></i>
               </span>
 
-              <div class="mt-3"><a href="./todos/{{this._id}}/edit" class="btn btn-major rounded text-white"
-                  type="submit" id="search-button">編輯</a>
+              <div class="mt-3">
+                <a href="/todos/{{this._id}}/edit" class="btn btn-major rounded text-white" type="submit"
+                  id="search-button">編輯</a>
 
-                <a href="./todos/{{this._id}}/delete" class="btn btn-major rounded text-white" type="submit"
-                  id="search-button">刪除</a>
+                <form action="/todos/{{this._id}}/delete" method='post' style="display:inline;">
+                  <button class="btn btn-major rounded text-white" type="submit" id="search-button">刪除</button>
+
+                </form>
 
               </div>
             </div>
